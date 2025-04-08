@@ -9,11 +9,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MQTT Dashboard',
+      title: 'Dashboard',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: HomeScreen(),
     );
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
