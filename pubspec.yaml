@@ -38,6 +38,8 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   http: ^1.3.0
   fl_chart: ^0.70.2
+  shared_preferences: ^2.1.0
+  flutter_local_notifications: ^14.0.0
 
 dev_dependencies:
   flutter_test:
