@@ -1,27 +1,8 @@
-// import 'package:flutter/material.dart';
-
-// class AccountPage extends StatelessWidget {
-//   const AccountPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text("Account Settings")),
-//       body: Center(
-//         child: Text(
-//           "Account Page (User Info & Settings)",
-//           style: TextStyle(fontSize: 20),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../services/mqtt_service.dart';
 import 'sensor_settings_page.dart';
-import 'dashboard_page.dart'; // Import dashboard page explicitly
+//import 'dashboard_page.dart'; // Import dashboard page explicitly
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
