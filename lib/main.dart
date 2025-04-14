@@ -1,62 +1,9 @@
-// import 'package:flutter/material.dart';
-// import 'pages/dashboard_page.dart';
-// import 'pages/data_page.dart';
-// import 'pages/account_page.dart';
-// import 'widgets/bottom_nav.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Dashboard',
-//       theme: ThemeData(primarySwatch: Colors.blue),
-//       home: HomeScreen(),
-//     );
-//   }
-// }
-
-// class HomeScreen extends StatefulWidget {
-//   const HomeScreen({super.key});
-
-//   @override
-//   _HomeScreenState createState() => _HomeScreenState();
-// }
-
-// class _HomeScreenState extends State<HomeScreen> {
-//   int _currentIndex = 0;
-//   final List<Widget> _pages = [DashboardPage(), DataPage(), AccountPage()];
-
-//   void onTabTapped(int index) {
-//     setState(() {
-//       _currentIndex = index;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: _pages[_currentIndex],
-//       bottomNavigationBar: BottomNavBar(
-//         currentIndex: _currentIndex,
-//         onTap: onTabTapped,
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'pages/dashboard_page.dart';
 import 'pages/data_page.dart';
 import 'pages/account_page.dart';
-import 'pages/sensor_settings_page.dart'; // Import the new settings page
+//import 'pages/sensor_settings_page.dart'; // Import the new settings page
 import 'widgets/bottom_nav.dart';
 
 void main() async {
