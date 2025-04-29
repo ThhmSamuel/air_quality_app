@@ -1,3 +1,4 @@
+import 'package:airquality_monitor/services/mqtt_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'pages/dashboard_page.dart';
@@ -9,9 +10,12 @@ import 'widgets/bottom_nav.dart';
 void main() async {
   // This is needed to ensure Flutter is initialized before we use platform channels
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize the notification system
-  await initNotifications();
+final mqttService = MqttService();
+await mqttService.initializeNotifications();
+
+  initNotifications();
   
   runApp(const MyApp());
 }

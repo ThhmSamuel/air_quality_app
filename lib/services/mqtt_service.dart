@@ -9,7 +9,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 class MqttService {
   late MqttServerClient client;
   Function(Map<String, dynamic>)? onDataReceived;
-  final FlutterLocalNotificationsPlugin _notificationsPlugin = FlutterLocalNotificationsPlugin();
+  final _notificationsPlugin = FlutterLocalNotificationsPlugin();
   
   // Cache for threshold values
   double _temperatureThreshold = 35.0;
@@ -30,7 +30,7 @@ class MqttService {
   DateTime? _lastCo2Notification;
   
   // Cooldown period between notifications (in minutes)
-  final int _notificationCooldown = 15;
+  final int _notificationCooldown = 5;
 
   //new client id for every connection
   final String clientId = 'flutter_client_${DateTime.now().millisecondsSinceEpoch}';
@@ -46,22 +46,20 @@ class MqttService {
     client.logging(on: true);
     
     // Initialize notifications and load threshold values
-    _initializeNotifications();
+    initializeNotifications();
     _loadThresholds();
   }
 
-  Future<void> _initializeNotifications() async {
-    const AndroidInitializationSettings androidSettings = 
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+  Future<void> initializeNotifications() async {
+    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
     
-    const DarwinInitializationSettings iosSettings = 
-        DarwinInitializationSettings(
+    const iosSettings = DarwinInitializationSettings(
           requestAlertPermission: true,
           requestBadgePermission: true,
           requestSoundPermission: true,
         );
     
-    const InitializationSettings initSettings = InitializationSettings(
+    const initSettings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
     );
@@ -210,13 +208,12 @@ class MqttService {
       _lastCo2Notification = now;
     }
   }
-
-  Future<void> _sendNotification(String title, String body, int id) async {
+Future<void> _sendNotification(String title, String body, int id) async {
     const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
       'sensor_alerts_channel',
       'Sensor Alerts',
       channelDescription: 'Notifications for sensor threshold alerts',
-      importance: Importance.high,
+      importance: Importance.max,
       priority: Priority.high,
     );
     
@@ -237,7 +234,7 @@ class MqttService {
       body,
       details,
     );
-  }
+  } 
 
   void disconnect() {
     client.disconnect();
